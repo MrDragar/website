@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+  {% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %} {% endblock %}</title>
+    <script src="https://use.fontawesome.com/b6d4575152.js"></script>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/css/bootstrap.min.css"
+      integrity="sha384-r4NyP46KrjDleawBgD5tp8Y7UzmLA05oM1iAEQ17CSuDqnUK2+k9luXQOfXJCJ4I" crossorigin="anonymous">
+  <link rel="stylesheet" href="{% static 'Mine/css/temp.css' %}">
+</head>
+<body>
+<aside>
+<div class="logo">
+    <img src="{% static 'Mine/img/icon.png' %}">
+    <div>Недоcraft</div>
+</div>
+<!--        <div class="logo">-->
+<!--        <a href="{% url 'logout' %}" type="button" class="btn btn-danger">Выход</a>-->
+<!--    </div>-->
+<div class="btn-group" role="group" aria-label="Basic example">
+  <a href="{% url 'home' %}" type="button" class="btn btn-primary">Главная</a>
+  <a href="{% url 'creator' %}"type="button" class="btn btn-primary">Связь с разработчиком</a>
+    {% if no_auth %}
+  <a href="{% url 'login' %}" type="button" class="btn btn-primary">Вход</a>
+  <a href="{% url 'registration' %}" type="button" class="btn btn-primary">Регистрация</a>
+    {% endif %}
+    {% if auth %}
+      <a href="{% url 'account' %}" type="button" class="btn btn-primary">Личный кабинет</a>
+  <a href="{% url 'download_launcher' %}" type="button" class="btn btn-primary">Скачать лаунчер</a>
+    {% endif %}
+</div>
+    {% if auth %}
+    <div class="exit">
+        <a href="{% url 'logout' %}" type="button" class="btn btn-danger">Выход</a>
+    </div>
+    {% endif %}
+</aside>
+<main> {% block content %} {% endblock %} </main>
+</body>
+</html>

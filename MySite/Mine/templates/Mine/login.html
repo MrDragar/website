@@ -1,0 +1,25 @@
+{% extends 'Mine/temp.html' %}
+{% block title %} Авторизация{% endblock %}
+{% block content %}
+<h3>Авторизация</h3>
+
+<form action="{% url 'login' %}" method="post" class="char-form">
+    {% csrf_token %}
+        <div class="mb-3">
+    <label for="{{form.email.id_for_label}}" class="form-label">{{form.email.label}}</label>
+    {{form.email}}
+        </div>
+        <div class="mb-3">
+    <label for="{{form.password.id_for_label}}" class="form-label">{{form.password.label}}</label>
+    {{form.password}}
+        </div>
+          <div class="mb-3 form-check">
+      {{form.check}}
+    <label class="form-check-label" for="{{form.check.id_for_label}}">{{form.check.label}}</label>
+  </div>
+        <a href="{% url 'forget_password' %}" class="forget_password">Забыли пароль?</a>
+      <button type="submit" class="btn btn-primary">Отправить</button>
+</form>
+    <h1>{{error}}</h1>
+
+{% endblock %}

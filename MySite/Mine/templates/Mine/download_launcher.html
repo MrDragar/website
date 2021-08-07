@@ -1,0 +1,12 @@
+{% extends 'Mine/temp.html' %}
+{% block title %} Скачать лаунчер {% endblock %}
+{% block content %}
+  {% load static %}
+
+
+<a class="download_wind" aria-hidden="true" href="{% static 'Mine/zip/Launcher_main.exe' %}">
+  <i class="fa fa-windows" aria-hidden="true"></i>
+    <div class="describe_wind">Скачать лаунчер на Windows x64</div>
+</a>
+
+{% endblock %}

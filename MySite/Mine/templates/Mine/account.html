@@ -1,0 +1,44 @@
+{% extends 'Mine/temp.html' %}
+{% block title %} Личный кабинет {% endblock %}
+{% block content %}
+  {% load static %}
+<h3>Привет, {{username}}!</h3>
+
+<div class="Images">
+
+  <div class="frame">
+<form action="{% url 'account' %}" class="skin" method="post" enctype="multipart/form-data">
+  {% csrf_token %}
+  <h3 class="label">Скин</h3>
+{% if skin %}
+<img src="{% static 'Mine/texture/skin/'|add:username|add:'.png' %}" class="image" >
+{% else %}
+<img src="{% static 'Mine/texture/skin/Steve.png' %}" class="image">
+{% endif %}
+{{skin_form.skin}}
+  </form>
+
+
+<form action="{% url 'account' %}" class="cape" method="post" enctype="multipart/form-data">
+  {% csrf_token %}
+  <h3 class="label">Плащ</h3>
+{% if cape %}
+<img src="{% static 'Mine/texture/cape/'|add:username|add:'.png' %}" class="image" >
+{% else %}
+<img src="{% static 'Mine/texture/cape/Steve.png' %}" class="no_image">
+{% endif %}
+{{cape_form.cape}}
+  </form>
+
+        <div class="description">
+      <span>Ваша почта: {{email}}</span> <br>
+          <span>Ваш Ник: {{username}}</span>
+
+    </div>
+  </div>
+</div>
+<div class="ac_but">
+  <a href="{% url 'username_request' %}" class="btn btn-outline-primary" type="button" >Изменить ник</a>
+    <a href="{% url 'password_request' %}" class="btn btn-outline-primary" type="button" >Изменить Пароль</a>
+</div>
+{% endblock %}

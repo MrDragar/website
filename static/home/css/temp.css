@@ -1,0 +1,40 @@
+body {
+background: white;
+}
+aside {
+background: black;
+float: up;
+width: 100%;
+height: 8vh;
+}
+aside .btn-group {
+text-align: center;
+width: 60%;
+height: 100%;
+margin-left: 0%;
+}
+aside .logo{
+float: left;
+width: 20%;
+height: 100%;
+color: white;
+}
+aside .logo div{
+font-size: 100%;
+display: inline;
+}
+aside .logo img{
+height: 100%;
+}
+aside .btn-group .btn{
+width: 25%;
+}
+aside .exit {
+float: right;
+height: 100%;
+width: 10%;
+}
+aside .exit a{
+height: 100%;
+width: 100%;
+}
